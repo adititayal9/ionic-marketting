@@ -31,10 +31,8 @@ myapp.controller("travel_localCtrl", function($scope, $state, $timeout, $cordova
         }
     };
 
+    $scope.startActivity = function(foo) {
 
-
-
-    $scope.startActivity = function() {
 
         console.log("clicked");
         var posOptions = {
@@ -53,18 +51,22 @@ myapp.controller("travel_localCtrl", function($scope, $state, $timeout, $cordova
                 console.log($scope.longitude);
                 console.log($scope.time);
                 executionComp = {
-                        "lat": $scope.latitude,
-                        "lng": $scope.longitude,
-                        "time": $scope.time
-                    };
-                if ($scope.toggle =="Start Activity") {
+                    "lat": $scope.latitude,
+                    "lng": $scope.longitude,
+                    "time": $scope.time
+                };
+
+                $scope.test = function(){
+                    console.log($scope.mode1);
+                };
+                if ($scope.toggle == "Start Activity") {
                     // $scope.startLatitde
 
                     //send lat ,lang n time
-                    $scope.startLatitude=$scope.latitude;
-                    $scope.startLongitude=$scope.longitude;
-                    $scope.startTime=$scope.time;
-                    
+                    $scope.startLatitude = $scope.latitude;
+                    $scope.startLongitude = $scope.longitude;
+                    $scope.startTime = $scope.time;
+
                     console.log(executionComp);
                     updates = {};
                     updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/start'] = executionComp;
@@ -76,17 +78,18 @@ myapp.controller("travel_localCtrl", function($scope, $state, $timeout, $cordova
                     console.log($scope.toggle);
                 } else if ($scope.toggle == "End Activity") {
                     //send lat,long and time
-                     console.log(executionComp);
-                    $scope.endLatitude=$scope.latitude;
-                    $scope.endLongitude=$scope.longitude;
+                    console.log(foo);
+                    console.log(executionComp);
+                    $scope.endLatitude = $scope.latitude;
+                    $scope.endLongitude = $scope.longitude;
 
-                    $scope.endTime=$scope.time;
+                    $scope.endTime = $scope.time;
                     console.log($scope.mode);
                     updates = {};
                     updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/end'] = executionComp;
                     updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/status'] = "completed";
-                    updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/mode'] = $scope.mode;
-                    updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/remark'] = $scope.remark;
+                    updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/mode'] = foo.mode;
+                    updates['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/remark'] = foo.remark;
                     firebase.database().ref().update(updates);
                     $scope.toggle = "Completed";
 
@@ -117,17 +120,14 @@ myapp.controller("travel_localCtrl", function($scope, $state, $timeout, $cordova
     };
 
     $scope.cancel = function() {
-        if($scope.actDetails.summary.status == "cancelled")
-        {
+        if ($scope.actDetails.summary.status == "cancelled") {
             alert("already cancelled !!");
-        }
-        else
-        {
+        } else {
             upd = {};
             upd['/' + userid + '/16-06-16/' + $scope.activityId + '/summary/status'] = "cancelled";
             firebase.database().ref().update(upd);
-             alert(" cancelled !!");
-        }    
+            alert(" cancelled !!");
+        }
 
     };
 

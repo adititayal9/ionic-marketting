@@ -10,6 +10,12 @@ myapp.config( function($stateProvider, $urlRouterProvider) {
       controller:'welCtrl'
     })
 
+   .state('test', {
+      url: '/test',
+      templateUrl: 'templates/test.html',
+      controller:'testCtrl'
+    })
+
     .state('start_my_day', {
       url: '/start_my_day/:adminId',
       templateUrl: 'templates/start_my_day.html',

@@ -143,3 +143,14 @@ myapp.run(function($ionicPlatform) {
         }
     });
 });
+
+
+myapp.controller('testCtrl', function($scope){
+
+    console.log('called');
+    $scope.change = function(c){
+        console.log(c);
+        console.log($scope.choice);
+    }
+
+})
