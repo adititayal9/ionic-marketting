@@ -1,0 +1,22 @@
+<ion-view view-title="Break">
+    <div class="tabs-striped tabs-balanced ">
+        <div class="tabs">
+            <a href="#/breakp/{{activityId}}" class="tab-item">Planned </a>
+            <a href="#/break/{{activityId}}" class="tab-item">Summary</a>
+        </div>
+    </div>
+
+
+    <ion-content>
+        <ion-button class="button button-assertive button-block" ng-click="start_stop()">{{toggle}}</ion-button>
+	        <form name="myForm" novalidate>
+	            <div class="list card">
+	                <label class="item item-input item-stacked-label icon-item-left">
+					    <span class="input-label ion-android-chat">  Comments</span>
+					    <textarea rows="5" ng-model="breaksummaryDetails.comment" ng-change="change()"></textarea>
+				    </label>
+	            </div>
+	        </form>
+        <ion-button class="button button-block button-positive" ng-click="save()">Save</ion-button>
+    </ion-content>
+</ion-view>

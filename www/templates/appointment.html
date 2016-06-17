@@ -1,0 +1,84 @@
+ <ion-view view-title="Appointment" >
+      <div class="tabs-striped tabs-balanced ">
+	      <div class="tabs">
+	       <a href="#/appointmentp/{{activityId}}" class="tab-item">Planned </a>
+	       <a href="#/appointment/{{activityId}}" class="tab-item">Summary</a>
+	      </div>
+       </div>
+	
+	 <ion-content >
+	 <ion-button class="button button-assertive button-block" ng-click="start_stop()">{{toggle}}</ion-button>
+	      <form name="myForm" novalidate>
+	      <div class="list card">
+
+	           <label class="item item-input item-stacked-label ">
+	           <div  >  Builder?</div>
+			     <div class="row">
+			     <div class="col" ><ion-radio ng-model="appointsummaryDetails.builder" ng-value="'Yes'" ng-change="change()">YES</ion-radio></div>
+                  <div class="col"><ion-radio ng-model="appointsummaryDetails.builder" ng-value="'No'" ng-change="change()">NO</ion-radio></div>
+                  </div>
+			   </label>   
+			    
+				<label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-person ">  Contact person</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.contact_person" >
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-iphone ">  Phone number</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.phone_no">
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-at">  Designation</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.designation">
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-laptop ">  Department</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.department">
+			    </label>
+
+			     <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-lightbulb">  Purpose</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.purpose">
+			    </label>
+
+			   <label class="item item-icon-left "  ng-click="getLocation()">
+			      <div class="ion-location" > Click to save my Location</div>
+			      </br>
+			      <p>Latitude:{{appointsummaryDetails.lat}}</p>
+			      <p>Longitude:{{appointsummaryDetails.lng}}</p>
+			   </label>
+
+			     <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-android-chat"  >  Comments</span>
+			       <textarea rows="5" ng-model="appointsummaryDetails.comments" ng-change="change()" ></textarea>
+			      </label>
+			      </div>
+
+			     <div class="list card">
+
+						<label class="item item-input item-stacked-label icon-item-left">
+					      <span class="input-label ion-clock "> Next action</span>
+					      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.next_action">
+					    </label>
+					    <label class="item item-input item-stacked-label icon-item-left">
+					      <span class="input-label ion-clock "> Action date</span>
+					      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.action_date">
+					    </label>
+					   
+					    <label class="item item-input item-stacked-label icon-item-left">
+					      <span class="input-label ion-email">  Action time</span>
+					      <input type="text" placeholder="" ng-change="change()" ng-model="appointsummaryDetails.action_time">
+					    </label>
+					   
+				</div>
+			    
+		  </div>
+		  </form>
+		  <ion-button class="button button-block button-positive" ng-click="save()">Save</ion-button>
+		  </br></br></br></br>
+	 </ion-content>
+ </ion-view>
+

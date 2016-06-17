@@ -1,0 +1,67 @@
+<ion-view view-title="Travel Outstation">
+    <div class="tabs-striped tabs-balanced ">
+        <div class="tabs">
+            <a href="#/travel_outstationp/{{activityId}}" class="tab-item">Planned </a>
+            <a href="#/travel_outstation/{{activityId}}" class="tab-item">Summary</a>
+        </div>
+    </div>
+
+    <ion-content>
+        <ion-button class="button button-assertive button-block" ng-click="start_stop()">{{toggle}}</ion-button>
+
+        <form name="myForm" novalidate>
+            <div class="list card">
+                <label class="item item-icon-left " ng-click="getLocation(0)">
+                 <div class="ion-location" > Start my travel</div>
+                  </br>
+                  <p>Latitude:{{travel_outstationsummaryDetails.start.lat}}</p>
+                  <p>Longitude:{{travel_outstationsummaryDetails.start.lng}}</p>
+                  <span class="input-label ion-calendar ">  Date </span>
+                  <input type="text" ng-model="travel_outstationsummaryDetails.start.date" placeholder="Enter start date here" ng-change="change()" >
+                </label>
+                
+                <label class="item item-icon-left " ng-click="getLocation(1)"  >
+                  <div class="ion-location" > End my travel</div>
+                  </br>
+                  <p>Latitude:{{travel_outstationsummaryDetails.end.lat}}</p>
+                  <p>Longitude:{{travel_outstationsummaryDetails.end.lng}}</p>
+                  <span class="input-label ion-calendar ">  Date </span>
+                  <input type="text" ng-model="travel_outstationsummaryDetails.end.date" placeholder="Enter end date here" ng-change="change()">
+               </label>
+
+                <label class="item item-input item-stacked-label ">
+                    <div class="ion-ios-minus" > Mode</div>
+                    <div class="row">
+                      <div class="col" ><ion-radio ng-model="travel_outstationsummaryDetails.mode" ng-change="change()" ng-value="'Bus'"> <i class="ion-android-bus"></i>  Bus</ion-radio></div>
+                      <div class="col" ><ion-radio ng-model="travel_outstationsummaryDetails.mode" ng-change="change()" ng-value="'Plane'" ><i class="ion-plane"></i> Plane</ion-radio></div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col"><ion-radio ng-model="travel_outstationsummaryDetails.mode" ng-change="change()" ng-value="'Train'" ><i class="ion-android-train"></i> Train</ion-radio></div>
+                      <div class="col" ><ion-radio ng-model="travel_outstationsummaryDetails.mode" ng-change="change()" ng-value="'Cab/car'" ><i class="ion-model-s"></i> Cab/Car</ion-radio></div>
+                    </div>
+
+                    <div class="row">
+                       <div class="col"><ion-radio>  Others <i class="ion-ios-arrow-right"></i></ion-radio></div>
+                       <div class="col"><input type="text text-large"  ng-model="travel_outstationsummaryDetails.mode" ng-change="change()"  placeholder="plz specify"></div>
+                       </br></br>
+                    </div>
+                </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+                <span class="input-label ion-android-chat">  Comments</span>
+                <textarea rows="5" ng-model="travel_outstationsummaryDetails.comments" ng-change="change()"></textarea>
+                </label>
+            </div>
+
+        </form>
+        <ion-button class="button button-positive button-block" ng-click="save()">Save</ion-button>
+        </br>
+        </br>
+        </br>
+        </br>
+
+    </ion-content>
+</ion-view>
+
+

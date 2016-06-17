@@ -1,0 +1,69 @@
+  <ion-view view-title="Mail details" >
+
+
+	 <div class="tabs-striped tabs-balanced ">
+      <div class="tabs">
+       <a href="#/emailp/{{activityId}}" class="tab-item">Planned </a>
+       <a href="#/email/{{activityId}}" class="tab-item">Summary</a>
+       </div>
+       </div>
+	 <ion-content >
+	 <ion-button class="button button-assertive button-block" ng-click="start_stop()">{{toggle}}</ion-button>
+	      <form name="myForm" novalidate>
+	      <div class="list card">     
+	    		
+			    <label class="item item-input item-stacked-label icon-item-left">
+			    	<span class="input-label ion-person">  to_email</span>
+			    	<input type="email" ng-change="change()" ng-model="emailsummaryDetails.to_email">
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-iphone "> cc_email</span>
+			      <input type="email" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.cc_email">
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-at">  Contact person</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.contact_person">
+			    </label>
+
+			     <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-laptop ">  Designation</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.designation">
+			    </label>
+
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-laptop ">  Department</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.department">
+			    </label>
+
+			     <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-lightbulb">  Subject of mail</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.subject">
+			    </label>
+
+			      <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-lightbulb">  Email body content</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.content">
+			    </label>
+
+			     <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-lightbulb">  Attachment link</span>
+			      <input type="text" placeholder="" ng-change="change()" ng-model="emailsummaryDetails.attachment_link">
+			    </label>
+
+			     <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-android-chat">  Comments</span>
+			       <textarea rows="5" ng-change="change()" ng-model="emailsummaryDetails.comments"></textarea>
+			      </label>
+			      </div>
+			    
+		  </div>
+		  </form>
+		  <ion-button class="button button-block button-positive" ng-click="save()">Save</ion-button>
+		  </br></br></br></br>
+	 </ion-content>
+ </ion-view>
+
+

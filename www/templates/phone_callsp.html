@@ -1,0 +1,43 @@
+<ion-view view-title="Call details">
+    <div class="tabs-striped tabs-balanced ">
+        <div class="tabs">
+            <a href="#/phone_callsp/{{activityId}}" class="tab-item">Planned </a>
+            <a href="#/phone_calls/{{activityId}}" class="tab-item">Summary</a>
+        </div>
+    </div>
+    <ion-content>
+  
+        <div class="list card">
+            <label class="item  item-stacked-label icon-item-left">
+			      <span class="input-label ion-iphone ">  Phone number</span>
+			      <p>{{planningDetails.contact_no}}</p>
+			 </label>
+
+            <label class="item  item-stacked-label icon-item-left">
+			      <span class="input-label ion-person ">  Contact person</span>
+			       <p>{{planningDetails.contact_person}}</p>
+			</label>
+
+            <label class="item  item-stacked-label icon-item-left">
+			      <span class="input-label ion-at">  Designation</span>
+			        <p>{{planningDetails.designation}}</p>
+			</label>
+
+            <label class="item  item-stacked-label icon-item-left">
+			      <span class="input-label ion-laptop ">  Department</span>
+			       <p> {{planningDetails.department}}</p>
+			</label>
+
+            <label class="item  item-stacked-label icon-item-left">
+			      <span class="input-label ion-lightbulb">  Purpose</span>
+			       <p>{{planningDetails.purpose}}</p>
+			</label>
+
+            <label class="item  item-stacked-label icon-item-left">
+			      <span class="input-label ion-android-chat">  Comments</span>
+			      <p>{{planningDetails.comments}}</p>
+
+			</label>
+        </div>
+    </ion-content>
+</ion-view>

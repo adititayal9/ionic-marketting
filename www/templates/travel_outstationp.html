@@ -1,0 +1,40 @@
+<ion-view view-title="Travel Outstation">
+    <div class="tabs-striped tabs-balanced ">
+        <div class="tabs">
+            <a href="#/travel_outstationp/{{activityId}}" class="tab-item">Planned </a>
+            <a href="#/travel_outstation/{{activityId}}" class="tab-item">Summary</a>
+        </div>
+    </div>
+
+    <ion-content>
+        <div class="list card">
+            <label class="item item-icon-left " ng-click="getLocation()">
+                 <div class="ion-location" > Start my travel</div>
+                  </br>
+                  <p>Latitude:{{planningDetails.start.lat}}</p>
+                  <p>Longitude:{{planningDetails.start.lng}}</p>
+                  <span class="input-label ion-calendar ">  Date </span>
+                  <p>{{planningDetails.start.date}}</p>
+            </label>
+            <label class="item item-icon-left " ng-click="getLocation()">
+                 <div class="ion-location" > End my travel</div>
+                 </br>
+                  <p>Latitude:{{planningDetails.end.lat}}</p>
+                  <p>Longitude:{{planningDetails.end.lng}}</p>
+                  <span class="input-label ion-calendar ">  Date </span>
+                  <p>{{planningDetails.end.date}}</p>
+            </label>
+
+            <label class="item item-input item-stacked-label ">
+                 <div class="ion-ios-minus" > Mode</div>
+                 <p>{{planningDetails.mode}}</p>
+            </label>
+
+            <label class="item item-input item-stacked-label icon-item-left">
+              <span class="input-label ion-android-chat">  Comments</span>
+               <p>{{planningDetails.comments}}</p>
+               
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

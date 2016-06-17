@@ -1,0 +1,27 @@
+<ion-view view-title="leave">
+    <div class="tabs-striped tabs-balanced ">
+        <div class="tabs">
+            <a href="#/leavep/{{activityId}}" class="tab-item">Planned </a>
+            <a href="#/leave/{{activityId}}" class="tab-item">Summary</a>
+        </div>
+    </div>
+    <ion-content>
+        <div class="list card">
+
+            <label class="item  item-stacked-label ">
+					<div  >  Planned?</div>
+					<p>{{planningDetails.planned}}</p>
+					
+				</label>
+
+            <label class="item  item-stacked-label ">
+					<div  >  Type?</div>
+					<p>{{planningDetails.type}}</p>
+				</label>
+            <label class="item item-stacked-label icon-item-left">
+					<span class="input-label ion-android-chat">  Comments</span>
+					<p>{{planningDetails.comment}}</p>
+				</label>
+        </div>
+    </ion-content>
+</ion-view>

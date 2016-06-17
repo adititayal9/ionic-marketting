@@ -1,0 +1,75 @@
+<ion-view view-title="Call details">
+    <div class="tabs-striped tabs-balanced ">
+        <div class="tabs">
+            <a href="#/phone_callsp/{{activityId}}" class="tab-item">Planned </a>
+            <a href="#/phone_calls/{{activityId}}" class="tab-item">Summary</a>
+        </div>
+    </div>
+
+    <ion-content>
+        <ion-button class="button button-assertive button-block" ng-click="start_stop()">{{toggle}}</ion-button>
+
+        <form name="myForm" novalidate>
+            <div class="list card">
+
+                <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-iphone ">  Phone number</span>
+			      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.contactno" ng-change="change()">
+			    </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-person ">  Contact person</span>
+			      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.contact_person" ng-change="change()">
+			    </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-at">  Designation</span>
+			      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.designation" ng-change="change()">
+			    </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-laptop ">  Department</span>
+			      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.department" ng-change="change()">
+			    </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-lightbulb">  Status</span>
+			      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.status" ng-change="change()">
+			    </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="input-label ion-android-chat">  Comments</span>
+			       <textarea rows="5"  ng-model="phone_callssummaryDetails.comments" ng-change="change()"></textarea>
+			      </label>
+            </div>
+
+            <div class="list card">
+
+                <label class="item item-input item-stacked-label icon-item-left">
+					      <span class="input-label ion-clock "> Next action</span>
+					      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.next_action" ng-change="change()">
+					    </label>
+                <label class="item item-input item-stacked-label icon-item-left">
+					      <span class="input-label ion-clock "> Action date</span>
+					      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.action_date" ng-change="change()">
+					    </label>
+
+                <label class="item item-input item-stacked-label icon-item-left">
+					      <span class="input-label ion-email">  Action time</span>
+					      <input type="text" placeholder="" ng-model="phone_callssummaryDetails.action_time" ng-change="change()">
+					    </label>
+
+            </div>
+
+            </div>
+        </form>
+
+        <ion-button class="button button-block button-positive" ng-click="save()">Save</ion-button>
+        </br>
+        </br>
+        </br>
+        </br>
+    </ion-content>
+</ion-view>
+
+

@@ -1,0 +1,58 @@
+  <ion-view view-title="Mail details" >
+   <div class="tabs-striped tabs-balanced ">
+     <div class="tabs">
+       <a href="#/emailp/{{activityId}}" class="tab-item">Planned </a>
+       <a href="#/email/{{activityId}}" class="tab-item">Summary</a>
+     
+       </div>
+       </div>
+	 <ion-content >
+	
+	      <form name="myForm" novalidate>
+	      <div class="list card">     
+			    
+				<label class="item item-stacked-label icon-item-left">
+			      <span class=" ion-person ">  to_email</span>
+			      <p>{{planningDetails.to_email}}</p>
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class="ion-iphone "> cc_email</span>
+			      <p>{{planningDetails.cc_email}}</p>
+			    </label>
+
+			    <label class="item item-input item-stacked-label icon-item-left">
+			      <span class=" ion-at">  Contact person</span>
+			      <p>{{planningDetails.contact_person}}</p>
+			    </label>
+
+			     <label class="item  item-stacked-label icon-item-left">
+			      <span class="ion-laptop ">  Designation</span>
+			       <p>{{planningDetails.designation}}</p>
+			    </label>
+
+
+			    <label class="item  item-stacked-label icon-item-left">
+			      <span class=" ion-laptop ">  Department</span>
+			      <p>{{planningDetails.department}}</p>
+			    </label>
+
+			     <label class="item  item-stacked-label icon-item-left">
+			      <span class=" ion-lightbulb">  Purpose</span>
+			      <p>{{planningDetails.purpose}}</p>
+			    </label>
+
+
+			     <label class="item item-stacked-label icon-item-left">
+			      <span class=" ion-android-chat">  Comments</span>
+			       <p>{{planningDetails.comment}}</p>
+			      </label>
+			      </div>
+			    
+		  </div>
+		  </form>
+		  
+	 </ion-content>
+ </ion-view>
+
+

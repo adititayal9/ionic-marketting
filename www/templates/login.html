@@ -1,0 +1,30 @@
+<ion-view view-title="Login" name="login-view" >
+
+
+<ion-content>
+    <form name="myForm" novalidate>
+        <div class="list">
+            <label class="item item-input item-floating-label">
+             <span class="input-label">Email_id</span>
+                 <input type="text" placeholder="Email_id" name="username" ng-model="data.username" required>
+            </label>
+            <label class="item item-input item-floating-label">
+             <span class="input-label">Password</span>
+                 <input  type="password" placeholder="password" name="password" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" ng-model="data.password" ng-minlength="6">
+            </label>
+        </div>
+        <div class="padding login p1" >
+            <p ng-show="myForm.username.$error.required" >* Username is required</p>
+            <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p>
+            <p ng-show="myForm.username.$error.minlength">* Username must be longer than 5 characters</p>
+            <p ng-show="myForm.password.$error.required">* Password is required</p>
+            <p ng-show="myForm.password.$error.minlength">* Password must be longer than 6 characters</p>
+
+            <p ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && myForm.password.$error.pattern && myForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</p>
+        </div>
+        <div class="padding">
+            <button type="button" class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit()">Submit</button>
+        </div>
+    </form>
+</ion-content>
+</ion-view>
