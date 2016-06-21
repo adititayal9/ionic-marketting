@@ -8,63 +8,6 @@
         </div>
     </div>
 
-    <!-- <ion-content>
-        <ion-button class="button button-assertive button-block" ng-click="startActivity()">{{toggle}}</ion-button>
-        <ion-button class="button button-assertive button-block" ng-click="cancel()">Cancel</ion-button>
-
-        <form name="myForm" novalidate>
-            <div class="list card">
-                <label class="item item-icon-left " >
-                 <div class="ion-location" > Start my travel</div>
-                  </br>
-                  <p>Latitude: {{startLatitude}}</p>
-                  <p>Longitude: {{startLongitude}}</p>
-                  <p>Start time: {{startTime}}</p>
-               </label>
-
-                <label class="item item-input item-stacked-label ">
-                 <div class="ion-ios-minus row" > Mode</div>
-                  <div class="row">
-                    <div class="col" ><ion-radio  ng-model="mode" ng-init="mode=null" ng-value="'Bus'"><i class="ion-android-bus"></i>  Bus</ion-radio></div>
-                     <div class="col"  ><ion-radio  ng-model="mode" ng-value="'Auto'"><i class="ion-android-bicycle"></i> Auto</ion-radio></div>
-                  </div>
-                  {{mode}}
-
-
-                  <div class="row">
-                    <div class="col" ><ion-radio  ng-model="mode" ng-value="'Metro'" ng-change="test()"><i class="ion-android-train"></i> Metro</ion-radio></div>
-                     <div class="col"><ion-radio  ng-model="mode" ng-init="mode=null" ng-value="'Cab/Car'"><i class="ion-model-s"></i> Cab/Car</ion-radio></div>
-                  </div>
-
-                  <div class="row">
-                     <div class="col" ><ion-radio  >  Others <i class="ion-ios-arrow-right"></i></ion-radio></div>
-                      <div class="col" >
-                      <input type="text" ng-model="mode" ng-init="mode=null" placeholder="plz specify">
-                       </div>
-                     </br></br>
-                  </div>
-                </label>
-
-                <label class="item item-input item-stacked-label icon-item-left">
-                  <span class="input-label ion-android-chat"> Remarks</span>
-                  <textarea rows="5" ng-change="change()" ng-model="remark" ng-init="remark=null"></textarea>
-                </label>
-
-                <label class="item item-icon-left ">
-                 <div class="ion-location" > End my travel</div>
-                 </br>
-                  <p>Latitude:{{endLatitude}}</p>
-                  <p>Longitude:{{endLongitude}}</p>
-                  <p>End time: {{endTime}}</p>
-               </label>
-              
-            </div>
-
-        </form>
-        </br>
-        </br>
-    </ion-content> -->
-
     <ion-content>
         <ion-button class="button button-assertive button-block" ng-click="startActivity(activity)">{{toggle}}</ion-button>
         <ion-button class="button button-assertive button-block" ng-click="cancel()">Cancel</ion-button>
@@ -85,9 +28,7 @@
                     <div class="col" ><ion-radio  ng-model="activity.mode" ng-init="mode=null" ng-value="'Bus'"><i class="ion-android-bus"></i>  Bus</ion-radio></div>
                      <div class="col"  ><ion-radio  ng-model="activity.mode" ng-value="'Auto'"><i class="ion-android-bicycle"></i> Auto</ion-radio></div>
                   </div>
-                  {{mode}}
-
-
+                
                   <div class="row">
                     <div class="col" ><ion-radio  ng-model="activity.mode" ng-value="'Metro'" ng-change="test()"><i class="ion-android-train"></i> Metro</ion-radio></div>
                      <div class="col"><ion-radio  ng-model="activity.mode" ng-init="mode=null" ng-value="'Cab/Car'"><i class="ion-model-s"></i> Cab/Car</ion-radio></div>

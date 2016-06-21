@@ -1,13 +1,12 @@
 var myapp = angular.module('starter', ['ionic', 'angularMoment', 'ngCordova', 'firebase']);
 
-myapp.controller("loginCtrl", function($scope, $http, $state, $ionicLoading, $firebaseArray, $firebaseObject) {
+myapp.controller("loginCtrl", function($scope,  $ionicPopup, $http, $state, $ionicLoading, $firebaseArray, $firebaseObject) {
     localStorage.clear();
     $scope.data = {};
 
     function getUsers() {
         console.log("hello");
         var ref = firebase.database().ref('/' + $scope.data.username);
-        // this uses AngularFire to create the synchronized array
         return $firebaseArray(ref);
     };
 
@@ -21,10 +20,14 @@ myapp.controller("loginCtrl", function($scope, $http, $state, $ionicLoading, $fi
             if (user.uid) {
                 //valid
                 console.log("hello");
-                alert("hello" + $scope.data.username);
+                $ionicPopup.alert({
+                   title: 'Hello '+ $scope.data.username+"!!",
+                   template: 'Have a nice day  :)'
+                 });
+                
                  localStorage.setItem("userid", user.uid);
+                 localStorage.setItem("any_activity_started",false);
                
-
                 $state.go('start_my_day', {
                     adminId: user.uid
                 });
@@ -32,6 +35,11 @@ myapp.controller("loginCtrl", function($scope, $http, $state, $ionicLoading, $fi
                 alert("Invalid user !! ");
 
             }
+        },function(err){
+            $ionicPopup.alert({
+                   title: 'Invalid user!! ',
+                   template: 'Please try later :)'
+                 });
         });
 
 
@@ -42,50 +50,51 @@ myapp.controller("startCtrl", function($scope, $state, $stateParams, $http,$fire
 
     console.log($stateParams.adminId);
     $scope.adminId = $stateParams.adminId;
-    // var x=$scope.email;
+   
     $scope.date = new Date();
-
+     var userid =  localStorage.getItem("userid");
+    firebase.database().ref('/users/' + userid + '/name').on('value', function(snapshot) {
+            $scope.name = snapshot.val();
+            console.log($scope.name);
+             
+        });
+   
     $scope.goToTasks = function() {
-
-
-         function getUsers() {
-	        console.log("hello");
-	        var ref = firebase.database().ref('/' + $scope.adminId);
-	        // this uses AngularFire to create the synchronized array
-	        return $firebaseArray(ref);
-	    };
-
-	    $scope.todos = getUsers();  //
-
-
-        $http({
-            method: "GET",
-            url: 'http://139.162.43.74/CheckActivityPresence',
-            params: {
-                adminId: $scope.adminId,
-                opt: "aa"
-            }
-        }).then(function successCallback(response) {
-            console.log(response);
-            // console.log(response.data.Status);
-            if (response.data.Status == 2)
-                alert("No activity for today!!");
-            else if (response.data.Status == 1) //repeated login
-                $state.go('tasks', {
+         $state.go('tasks', {
                 adminId: $scope.adminId
             });
-            else {
-                console.log($scope.adminId);
-                $state.go('welcome', {
-                    adminId: $scope.adminId
-                });
-            }
 
-        }, function errorCallback(response) {
-            alert("Server error!!");
-        });
+        
 
-    }
+
+        // $http({
+        //     method: "GET",
+        //     url: 'http://139.162.43.74/CheckActivityPresence',
+        //     params: {
+        //         adminId: $scope.adminId,
+        //         opt: "aa"
+        //     }
+        // }).then(function successCallback(response) {
+        //     console.log(response);
+        //     // console.log(response.data.Status);
+        //     if (response.data.Status == 2)
+        //         alert("No activity for today!!");
+        //     else if (response.data.Status == 1) //repeated login
+        //         $state.go('tasks', {
+        //         adminId: $scope.adminId
+        //     });
+        //     else {
+        //         console.log($scope.adminId);
+        //         $state.go('welcome', {
+        //             adminId: $scope.adminId
+        //         });
+        //     }
+
+        // }, function errorCallback(response) {
+        //     alert("Server error!!");
+        // });
+
+    };
 });
 
 myapp.controller("timeline1Ctrl", function($scope, $state) {
